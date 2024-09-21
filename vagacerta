@@ -22,7 +22,7 @@ def reservar_vaga():
 
 if __name__ == '__main__':
     app.run(debug=True)
-Código gerado por IA. Examine e use com cuidado. Mais informações em perguntas frequentes.
+
 Banco de Dados
 Configuração do SQLite:
 Python
@@ -37,7 +37,7 @@ c.execute('''CREATE TABLE reservas (id INTEGER PRIMARY KEY, vaga_id INTEGER, usu
 
 conn.commit()
 conn.close()
-Código gerado por IA. Examine e use com cuidado. Mais informações em perguntas frequentes.
+
 Frontend com Kivy
 Instalação:
 pip install kivy
@@ -54,7 +54,7 @@ class EstacionamentoApp(App):
 
 if __name__ == '__main__':
     EstacionamentoApp().run()
-Código gerado por IA. Examine e use com cuidado. Mais informações em perguntas frequentes.
+
 Integração de Pagamentos
 Stripe:
 pip install stripe
