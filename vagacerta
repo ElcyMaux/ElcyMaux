@@ -1,0 +1,78 @@
+Backend com Flask
+Instalação:
+pip install flask
+
+Configuração Inicial:
+Python
+
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/vagas', methods=['GET'])
+def get_vagas():
+    # Lógica para retornar vagas disponíveis
+    return jsonify({"vagas": []})
+
+@app.route('/reservar', methods=['POST'])
+def reservar_vaga():
+    # Lógica para reservar uma vaga
+    data = request.json
+    return jsonify({"status": "reserva feita"})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+Código gerado por IA. Examine e use com cuidado. Mais informações em perguntas frequentes.
+Banco de Dados
+Configuração do SQLite:
+Python
+
+import sqlite3
+
+conn = sqlite3.connect('estacionamento.db')
+c = conn.cursor()
+
+c.execute('''CREATE TABLE vagas (id INTEGER PRIMARY KEY, disponivel BOOLEAN)''')
+c.execute('''CREATE TABLE reservas (id INTEGER PRIMARY KEY, vaga_id INTEGER, usuario TEXT)''')
+
+conn.commit()
+conn.close()
+Código gerado por IA. Examine e use com cuidado. Mais informações em perguntas frequentes.
+Frontend com Kivy
+Instalação:
+pip install kivy
+
+Interface Básica:
+Python
+
+from kivy.app import App
+from kivy.uix.label import Label
+
+class EstacionamentoApp(App):
+    def build(self):
+        return Label(text='Controle de Estacionamento')
+
+if __name__ == '__main__':
+    EstacionamentoApp().run()
+Código gerado por IA. Examine e use com cuidado. Mais informações em perguntas frequentes.
+Integração de Pagamentos
+Stripe:
+pip install stripe
+
+Exemplo de Integração:
+Python
+
+import stripe
+
+stripe.api_key = 'sua_chave_secreta'
+
+@app.route('/pagar', methods=['POST'])
+def pagar():
+    data = request.json
+    charge = stripe.Charge.create(
+        amount=2000,
+        currency='usd',
+        source=data['token'],
+        description='Pagamento de Estacionamento'
+    )
+    return jsonify({"status": "pagamento realizado"})
